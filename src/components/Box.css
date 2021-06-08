@@ -1,0 +1,12 @@
+.box {
+    min-width: 75px;
+    min-height: 75px;
+    font-size: 4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box:hover {
+    background: rgba(211, 211, 211, 0.3)
+}

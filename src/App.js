@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Box from './components/Box';
 
 function App() {
+  const [boxes, setBoxes] = useState(Array(9).fill('X'));
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="card">
+        <div className="container">
+          <h1><b>Tic - Tac - Toe</b></h1> 
+          <div className="board">
+            {
+              boxes.map((box, i) => (
+                <Box key={i} boxId={i}>{box}</Box>
+              ))
+            }
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
