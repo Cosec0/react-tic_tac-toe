@@ -4,7 +4,7 @@ export default function Box(props) {
     let borderStyle = '1px solid red';
 
     return (
-        <div className="box" style={
+        <div className="box" id={props.boxId} onClick={props.clicker} style={
             props.boxId === 0 ? ({
                 borderRight: borderStyle,
                 borderBottom: borderStyle
