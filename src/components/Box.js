@@ -1,7 +1,7 @@
 import './Box.css';
 
 export default function Box(props) {
-    let borderStyle = '1px solid red';
+    let borderStyle = '1px solid #4CAF50';
 
     return (
         <div className="box" id={props.boxId} onClick={props.clicker} style={

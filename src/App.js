@@ -5,9 +5,17 @@ import NextPlayer from './components/NextPlayer';
 
 function App() {
   const [boxes, setBoxes] = useState(Array(9).fill(''));
+  const [player, setPlayer] = useState('X');
+  const [boardFilled, setBoardFilled] = useState(false);
 
   let currentPlayer = 'X';
-  const [player, setPlayer] = useState('X');
+
+  function resetBoard() {
+    setBoxes(Array(9).fill(''));
+    setPlayer('X');
+    currentPlayer = 'X';
+    setBoardFilled(false);
+  }
 
   async function setPoint(e) {
     let tempArray = [...boxes];
@@ -16,6 +24,9 @@ function App() {
       await setPlayer(currentPlayer => (currentPlayer === 'X' ? 'O' : 'X'));
       tempArray[Number(e.target.id)] = player;
       setBoxes(tempArray);
+      if(tempArray.filter(box => box === '').length === 0) {
+        setBoardFilled(true);
+      }
     }
   }
 
@@ -24,6 +35,10 @@ function App() {
       <div className="card">
         <div className="container">
           <h1><b>Tic - Tac - Toe</b></h1> 
+          {
+            boardFilled && <button onClick={resetBoard}>Play Again</button>
+          }
+
           <div className="board">
             {
               boxes.map((box, i) => (
