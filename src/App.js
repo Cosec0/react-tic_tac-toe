@@ -33,7 +33,7 @@ function App() {
         setWinnerMessage(`${player} is the winner!`);
         setBoardFilled(true);
       }
-      if(tempArray.filter(box => box === '').length === 0) {
+      else if(tempArray.filter(box => box === '').length === 0) {
         setWinnerMessage(`It is a tie!`);
         setBoardFilled(true);
       }
